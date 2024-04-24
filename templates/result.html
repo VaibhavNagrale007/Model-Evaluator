@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Model Results</title>
+{% endblock %}
+
+{% block body %}
+<div class="form-box" style="position: relative;">
+    <div class="header-text">Results</div>
+    {% for key, value in accuracy.items() %}
+        <h3>{{ key }}</h3>
+        <p>Accuracy: {{ value[0] }} <br>Loss: {{ value[1] }}</p>
+    {% endfor %}
+    <button class="submit_button" onclick="location.href = '/'">Go Back</button>
+    <div>
+        Here are some possible augmentations you can perform on X-ray images for pneumonia detection to increase the robustness and accuracy of your model:
+        <ol>
+            <li><b>Rotation:</b> Rotate the images by a certain degree to simulate different angles of X-ray capture.</li>
+            <li><b>Horizontal and Vertical Shift:</b> Shift the images horizontally and vertically to simulate variations in positioning during X-ray capture.</li>
+            <li><b>Zoom:</b> Zoom in or out on the images to simulate different scales of X-ray capture.</li>
+            <li><b>Brightness Adjustment:</b> Adjust the brightness of the images to simulate variations in exposure during X-ray capture.</li>
+            <li><b>Contrast Adjustment:</b> Adjust the contrast of the images to simulate variations in contrast during X-ray capture.</li>
+            <li><b>Shear Transformation:</b> Apply shearing to the images to simulate distortion that may occur during X-ray capture.</li>
+            <li><b>Horizontal and Vertical Flip:</b> Flip the images horizontally or vertically to simulate different orientations of X-ray capture.</li>
+            <li><b>Noise Injection:</b> Add random noise to the images to simulate imperfections in X-ray capture.</li>
+            <li><b>Elastic Transformation:</b> Apply elastic deformation to the images to simulate stretching and deformation that may occur during X-ray capture.</li>
+            <li><b>Color Jitter:</b> Randomly change the color of the images to simulate variations in color balance during X-ray capture.</li>
+            <li><b>Cutout:</b> Randomly remove rectangular patches from the images to simulate occlusions or artifacts in X-ray capture.</li>
+            <li><b>Grid Distortion:</b> Apply grid distortion to the images to simulate grid-like distortions that may occur during X-ray capture.</li>
+            <li><b>Random Erasing:</b> Randomly erase patches from the images to simulate missing or obscured areas in X-ray capture.</li>
+            <li><b>Histogram Equalization:</b> Apply histogram equalization to enhance the contrast and details in the images.</li>
+        </ol>
+        These augmentations can help increase the variability in your training data and make your model more robust to different conditions and variations in X-ray images. <br>
+        Experiment with different combinations of augmentations to find the ones that work best for your specific dataset and model architecture.
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>About</title>
+{% endblock %}
+
+{% block body %}
+    <div class="form-box" style="position: relative;">
+        <h2>About Webapp</h2>
+        <ul>
+            <li>This Webapp evaluates your uploaded model on existing dataset for Pneumonia detection.</li>
+            <li>It also evaluates your model on RED attack (black box attack) and FGSM attack (white box attack).</li>
+            <li>It also suggest possible augmentation for training images to increase accuracy of uploaded model.</li>
+            <li>Task remaining for modifying model and showing increase in accuracy after suggested augmentation.</li>
+        </ul>
+        <h2>Please note:</h2>
+        <ul>
+            <li>You can upload only zip file which will have your model.</li>
+            <li>Model must be trained on images of size [height, width] = [224, 224] and <br>
+                images must be in RGB format (if B&W then change to RGB format).</li>
+                <img src="../static/images/image-configuration.png" alt="Image configurations">
+            <li>Model must have class mode as binary and should predict either 0(NORMAL) or 1(PNEUMONIA).</li>
+        </ul>
+        <h2>TODO: (ordered on basis of progression)</h2>
+        <ul>
+            <li>Add image for model requrements under 'Please note:' [Done]</li>
+            <li>Add option button to choose attacks for evaluation of model [Done]</li>
+            <li>Add dataset preview and its description [Hold for now]</li>
+            <li>Show how accuracy is decreased after attacks <br>[Done partially can add by how much decreased and some sentence or graph]</li>
+            <li>Augmentation suggestions [Done]</li>
+            <li>For now only two attacks try adding more options [Done can be added more using foolbox]</li>
+            <li>Running same model on multiple dataset can become time consuming if sequential try implementing with threads [Done]</li>
+            <li>GAuth</li>
+        </ul>
+        <button class="submit_button" onclick="location.href = '/'">Go Back</button>
+    </div>
+{% endblock %}

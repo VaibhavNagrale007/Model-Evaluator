@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Model Check</title>
+{% endblock %}
+
+{% block body %}
+
+    <div id="loading"></div>
+    <div id="content" class="form-box">
+        <div class="header-text">Upload your Model</div>
+        <p>
+            <form method=POST enctype=multipart/form-data action="{{ url_for('index') }}">
+                <input class="inp" type="file" id="media" name="media">
+                <input type="submit" name="anything_submit" value="Submit" onclick="loading();" class="submit_button inp">
+                <div>
+                    Evaluate your model on:
+                    <br>
+                    <input type="checkbox" name="defaultDataset" checked disabled>Dataset 
+                    <br>
+                    White Box Attack:
+                    <input type="checkbox" name="fgsm">FGSM Attack
+                    <!-- <input type="checkbox" name="white">for checkk -->
+                    <br>
+                    Black Box Attack:
+                    <input type="checkbox" name="red">RED Attack 
+                    <!-- <input type="checkbox" name="black">for check -->
+                </div>
+            </form>
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">// <![CDATA[
+        function loading(){
+            console.log('loading fun invoked.')
+            $("#loading").show();
+            $("#content").hide();       
+        }
+    // ]]></script>
+
+{% endblock %}
